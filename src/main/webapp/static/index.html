@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtr">
+
+<head>
+<title>我的书屋</title>
+<meta charset="utf-8">
+<link href="./css/font.css" rel="stylesheet" type="text/css" />
+<link href="./css/public.css" rel="stylesheet" type="text/css" />
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+<script type="text/javascript">
+	var rem = document.documentElement.clientWidth / 6.4;
+	document.getElementsByTagName('html')[0].style.fontSize = rem + 'px';
+	addEventListener('resize', function() {
+		var rem = document.documentElement.clientWidth / 6.4;
+		document.getElementsByTagName('html')[0].style.fontSize = rem + 'px';
+	})
+</script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+</head>
+
+<body >
+	<div class="container" ui-view="">
+		
+	</div>
+</body>
+
+<script type="text/javascript" src="./js/angular.min.js"></script>
+<script type="text/javascript" src="./js/angular-ui-router.js"></script>
+<script type="text/javascript" src="./js/ocLazyLoad.js"></script>
+<script type="text/javascript" src="./js/config.js"></script>
+<script type="text/javascript" src="./js/directive.js"></script>
+<script type="text/javascript" src="./js/service.js"></script>
+<script type="text/javascript" src="./js/controller.js"></script>
+</html>

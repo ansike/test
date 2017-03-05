@@ -1,0 +1,25 @@
+.header_bookCity {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .bookCity_tab {
+        position: absolute;
+        width: 2rem;
+        height: .5rem;
+        line-height: .5rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border:1px solid #B8F4FF;
+        .tabs {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+        .sex_checked {
+            background: #0ed1dc;
+        }
+    }
+}

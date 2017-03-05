@@ -1,0 +1,44 @@
+<div id="mybookrack" ng-controller="mybookrackCtr" onload="load()">
+    <header class="header">
+        <div class="header_home clearfix">
+            <span class="nor_title fl">我的书架</span>
+            <span class="font_icon fr myadd">&#xe7b3;</span>
+            <span class="font_icon fr mysearch">&#xe608;</span>
+        </div>
+    </header>
+    <div class="contain">
+        <div class="myBookrack selected " id="wrapper">
+            <div id="scroller">
+                <div class="li_title">
+                    <span class="ver_line"></span>
+                    <span class="title_recommend">推荐：</span>
+                    <span class="recommend_book">布衣神算</span>
+                </div>
+                <ul >
+                    <li class="rack_li" ng-repeat="book in books">
+                        <div class="book_pic">
+                            <img ng-src={{book.coverPic}} />
+                        </div>
+                        <dl class="book_info">
+                            <h4 class="book_title">{{book.bookName}}</h4>
+                            <p><span class="author">{{book.bookAuthor}}</span><span class="novel_state">完结</span></p>
+                            <p class="read_schedule">读至：<span>封面</span></p>
+                        </dl>
+                        <div class="book_state">
+                            <span class="book_update">更新</span>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	setTimeout(function(){
+		var myScroll = new IScroll('#wrapper', {
+		    mouseWheel: true,
+		    tap: true
+		});
+	},300)
+</script>
