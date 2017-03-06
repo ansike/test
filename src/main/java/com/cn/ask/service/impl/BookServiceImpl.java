@@ -14,9 +14,11 @@ public class BookServiceImpl implements BookService {
 	@Autowired private BookMapper bookMapper;
 	@Override
 	public PageInfo<Book> findBook(Integer start, Integer size) {
-		
+
 		BookExample example=new BookExample();
-		example.createCriteria().getAllCriteria();
+//		for(Book b: bookMapper.selectByExample(example)){
+//			System.out.println(b);
+//		}
 		return new PageInfo<Book>(bookMapper.selectByExample(example));
 	}
 

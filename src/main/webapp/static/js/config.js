@@ -21,7 +21,6 @@ myapp.run(function($rootScope, $templateCache) {
 });
 
 myapp.config(function ($stateProvider, $urlRouterProvider) {
-    // cfpLoadingBarProvider.includeSpinner = true;
     $urlRouterProvider.when("", "/index").when("/fontDetails/", "index").when("/appiInfo/", "index").otherwise("/index");
     $stateProvider
         .state("index", {
@@ -30,7 +29,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 '':{
                     templateUrl: './html/common.html',
                     controller: function($state){
-                        $state.go('index.mybookrack');
+                        $state.go('index.bookCity');
                     }
                 }
             }
@@ -51,6 +50,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
         .state("index.bookCity", {
             url: "/bookCity",
             templateUrl: "./html/bookCity.html",
+            controller:"bookCityCtr",
             resolve:{
                 deps:["$ocLazyLoad",function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -58,6 +58,15 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                         ])
                 }]
             }
+        })
+        .state("index.bookCity.boy", {
+            url: "/boy",
+            templateUrl: "./html/boy.html",
+
+        })
+        .state("index.bookCity.girl", {
+            url: "/girl",
+            templateUrl: "./html/girl.html",
 
         })
         .state("index.category", {

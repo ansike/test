@@ -1,14 +1,14 @@
-<div id="bookCity">
+<div id="bookCity" ng-controller="bookCityCtr">
     <header class="header">
         <div class="header_bookCity">
             <p class="bookCity_tab">
-                <span class="boys tabs sex_checked">男生</span>
-                <span class="girls tabs">女生</span>
+                <span class="boys tabs sex_checked" ui-sref=".boy">男生</span>
+                <span class="girls tabs" ui-sref="index.bookCity.girl">女生</span>
             </p>
             <span class="font_icon fr mysearch">&#xe608;</span>
         </div>
     </header>
-    <div class="contain">
-        <div class="myBookCity">书城</div>
+    <div class="contain" ui-view>
+        <div class="myBookCity" ></div>
     </div>
 </div>

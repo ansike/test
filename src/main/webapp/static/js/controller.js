@@ -54,3 +54,7 @@ myapp.controller("mybookrackCtr", ["$scope","httpFactory", function($scope,httpF
         
     })
 }])
+myapp.controller("bookCityCtr", ["$scope","httpFactory","$state", function($scope,httpFactory,$state) {
+    $state.go("index.bookCity.boy");
+    
+}])
