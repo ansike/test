@@ -62,6 +62,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
         .state("index.bookCity.boy", {
             url: "/boy",
             templateUrl: "./html/boy.html",
+            replaced:"true"
 
         })
         .state("index.bookCity.girl", {
