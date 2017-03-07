@@ -1,3 +1,6 @@
+.contain{
+    background: #F3F4F5;
+}
 .header_bookCity {
     width: 100%;
     height: 100%;
@@ -20,39 +23,73 @@
         }
         .sex_checked {
             background: #FFFFFF;
+            color: #5ED9CD;
         }
     }
-    
 }
+
 .swiper-container {
-        width: 100%;
-        height: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-.swiper-pagination-bullet{
+    width: 100%;
+    height: 2rem;
+}
+.swiper-wrapper{
+    height: 100%;
+}
+.swiper-slide {
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullet {
     width: 5px;
     height: 5px;
 }
-.swiper-slide>img{
+
+.swiper-slide>img {
     width: 100%;
     height: 100%;
+}
+
+.category {
+    width: 100%;
+    height: 1.4rem;
+    border-top: solid 1px #cccccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFFF;
+    .category_li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .new_book .nav_icon {
+        color: #00AAEC;
+    }
+    .over_book .nav_icon {
+        color: #F29116;
+    }
+    .rank_book .nav_icon {
+        color: #249F71;
+    }
+    .free_book .nav_icon {
+        color: #D14E33;
+    }
 }

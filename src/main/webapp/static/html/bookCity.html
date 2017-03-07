@@ -1,35 +1,68 @@
 <div id="bookCity" ng-controller="bookCityCtr">
-    <header class="header">
-        <div class="header_bookCity">
-            <p class="bookCity_tab">
-                <span class="boys tabs sex_checked" ui-sref-active="sex_checked" ui-sref=".boy">男生</span>
-                <span class="girls tabs" ui-sref-active="sex_checked" ui-sref="index.bookCity.girl">女生</span>
-            </p>
-            <span class="font_icon fr mysearch">&#xe608;</span>
-        </div>
-    </header>
-    <div class="contain">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="./img/book1.jpg"></div>
-                <div class="swiper-slide"><img src="./img/book2.jpg"></div>
-                <div class="swiper-slide"><img src="./img/book3.jpg"></div>
-                <div class="swiper-slide"><img src="./img/book4.jpg"></div>
-                <div class="swiper-slide"><img src="./img/book5.jpg"></div>
-            </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-        </div>
-        <script>
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            slidesPerView: 1,
-            paginationClickable: true,
-            spaceBetween: 30,
-            loop: true,
-            autoplay:1000
-        });
-        </script>
-        <div ui-view></div>
-    </div>
+	<header class="header">
+		<div class="header_bookCity">
+			<p class="bookCity_tab">
+				<span class="boys tabs sex_checked" ui-sref-active="sex_checked"
+					ui-sref=".boy">男生</span> <span class="girls tabs"
+					ui-sref-active="sex_checked" ui-sref="index.bookCity.girl">女生</span>
+			</p>
+			<span class="font_icon fr mysearch">&#xe608;</span>
+		</div>
+	</header>
+	<div class="contain clearfix">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="./img/book1.jpg">
+				</div>
+				<div class="swiper-slide">
+					<img src="./img/book2.jpg">
+				</div>
+				<div class="swiper-slide">
+					<img src="./img/book3.jpg">
+				</div>
+				<div class="swiper-slide">
+					<img src="./img/book4.jpg">
+				</div>
+				<div class="swiper-slide">
+					<img src="./img/book5.jpg">
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				pagination : '.swiper-pagination',
+				slidesPerView : 1,
+				paginationClickable : true,
+				spaceBetween : 30,
+				loop : true,
+				autoplay : 1000
+			});
+		</script>
+		<div class="li_title">
+			<span class="ver_line"></span> <span class="title_recommend">推荐：</span>
+			<span class="recommend_book">布衣神算</span>
+		</div>
+		<ul class="category">
+			<li class="category_li new_book">
+				<i class="nav_icon">&#xe60e;</i>
+				<span>新书</span>
+			</li>
+			<li class="category_li over_book">
+				<i class="nav_icon">&#xe618;</i>
+				<span>完本</span>
+			</li>
+			<li class="category_li rank_book">
+				<i class="nav_icon">&#xe620;</i>
+				<span>排行</span>
+			</li>
+			<li class="category_li free_book">
+				<i class="nav_icon">&#xe623;</i>
+				<span>免费</span>
+			</li>
+		</ul>
+		<div ui-view></div>
+	</div>
 </div>

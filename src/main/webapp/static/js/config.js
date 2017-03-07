@@ -29,7 +29,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 '':{
                     templateUrl: './html/common.html',
                     controller: function($state){
-                        $state.go('index.mybookrack');
+                        $state.go('index.bookCity');
                     }
                 }
             }
