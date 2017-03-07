@@ -2,13 +2,34 @@
     <header class="header">
         <div class="header_bookCity">
             <p class="bookCity_tab">
-                <span class="boys tabs sex_checked" ui-sref=".boy">男生</span>
-                <span class="girls tabs" ui-sref="index.bookCity.girl">女生</span>
+                <span class="boys tabs sex_checked" ui-sref-active="sex_checked" ui-sref=".boy">男生</span>
+                <span class="girls tabs" ui-sref-active="sex_checked" ui-sref="index.bookCity.girl">女生</span>
             </p>
             <span class="font_icon fr mysearch">&#xe608;</span>
         </div>
     </header>
-    <div class="contain" ui-view>
-    	<div>asda</div>
+    <div class="contain">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./img/book1.jpg"></div>
+                <div class="swiper-slide"><img src="./img/book2.jpg"></div>
+                <div class="swiper-slide"><img src="./img/book3.jpg"></div>
+                <div class="swiper-slide"><img src="./img/book4.jpg"></div>
+                <div class="swiper-slide"><img src="./img/book5.jpg"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 1,
+            paginationClickable: true,
+            spaceBetween: 30,
+            loop: true,
+            autoplay:1000
+        });
+        </script>
+        <div ui-view></div>
     </div>
 </div>

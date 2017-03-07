@@ -29,7 +29,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 '':{
                     templateUrl: './html/common.html',
                     controller: function($state){
-                        $state.go('index.bookCity');
+                        $state.go('index.mybookrack');
                     }
                 }
             }
@@ -54,6 +54,8 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
             resolve:{
                 deps:["$ocLazyLoad",function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
+                        "./css/swiper.min.css",
+                        "./js/swiper.min.js",
                         "./css/bookCity.css"
                         ])
                 }]
@@ -62,7 +64,6 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
         .state("index.bookCity.boy", {
             url: "/boy",
             templateUrl: "./html/boy.html",
-            replaced:"true"
 
         })
         .state("index.bookCity.girl", {
@@ -80,7 +81,6 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                         ])
                 }]
             }
-
         })
         .state("index.mine", {
             url: "/mine",

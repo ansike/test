@@ -83,6 +83,26 @@ html {
     overflow: hidden;
     clear: both;
 }
+
+.li_title {
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    color: #cccccc;
+    font-size: .18rem;
+    .ver_line {
+        float: left;
+        width: 4px;
+        height: 14px;
+        margin-right: .1rem;
+        margin-top: 0.15rem;
+        background: #FFB5A1;
+        border-radius: 4px;
+    }
+}
+
 .container {
     width: 100%;
     height: 100%;

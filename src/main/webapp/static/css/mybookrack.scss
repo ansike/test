@@ -10,24 +10,6 @@
 
 .myBookrack {
     width: 100%;
-    .li_title {
-        width: 100%;
-        height: .6rem;
-        line-height: .6rem;
-        padding: 0 .2rem;
-        box-sizing: border-box;
-        color: #cccccc;
-        font-size: .18rem;
-        .ver_line {
-            float: left;
-            width: 4px;
-            height: 14px;
-            margin-right: .1rem;
-            margin-top: 0.15rem;
-            background: #FFB5A1;
-            border-radius: 4px;
-        }
-    }
     .rack_li {
         width: 100%;
         height: 1.96rem;
@@ -86,7 +68,7 @@
 	position: absolute;
 	z-index: 1;
 	top: 0;
-	bottom: 48px;
+	bottom: 0;
 	left: 0;
 	width: 100%;
 	background: #ccc;
@@ -123,3 +105,4 @@
 	width: 100%;
 	text-align: left;
 }
+
