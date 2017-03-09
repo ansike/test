@@ -9,6 +9,8 @@ spring:
      view:
        prefix: /webapp/static/
        suffix: .jsp
+   redis:
+       host: localhost
 mybatis:
    mapper-locations: classpath*:com/cn/ask/mapping/*.xml
    type-aliases-package: com.cn.ask.model

@@ -1,4 +1,4 @@
-package com.cn.ask.model;
+package com.cn.ask.com.cn.ask.model;
 
 import java.util.Date;
 

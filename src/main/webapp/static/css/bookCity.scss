@@ -1,6 +1,9 @@
-.contain{
-    background: #F3F4F5;
+.contain {
+    background: #ebecec;
+    overflow-y:auto;
+    height: 9.36rem; 
 }
+
 .header_bookCity {
     width: 100%;
     height: 100%;
@@ -32,9 +35,11 @@
     width: 100%;
     height: 2rem;
 }
-.swiper-wrapper{
+
+.swiper-wrapper {
     height: 100%;
 }
+
 .swiper-slide {
     height: 100%;
     text-align: center;
@@ -65,16 +70,16 @@
     height: 100%;
 }
 
-.category {
+.bookCity_cate {
     width: 100%;
     height: 1.4rem;
-    border-top: solid 1px #cccccc;
+    border-top: solid 1px #ebecec;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     background: #FFFFFF;
-    .category_li {
+    .bookCity_cate_li {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -93,6 +98,58 @@
         color: #D14E33;
     }
 }
-.boyAndGirl{
-    padding-top: .5rem;
+
+.boyAndGirl {
+    margin-top: .5rem;
+    .bc_li_box {
+        background: #FFFFFF;
+    }
+    .bc_li {
+        width: 100%;
+        height: 2.6rem;
+        box-sizing: border-box;
+        padding: .2rem;
+        border-top: solid 1px #ebecec;
+        .bc_pic {
+            width: 1.8rem;
+            height: 100%;
+            &>img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .bc_content {
+            width: 4rem;
+            height: 100%;
+            position: relative;
+            .bc_title {
+                font-size: .28rem;
+                font-weight: normal;
+                line-height: .56rem;
+            }
+            .bc_txt {
+                width: 100%;
+                height: .9rem;
+                overflow: hidden;
+                font-size: .22rem;
+                line-height: .32rem;
+                color: #AEAEAE;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+            .bc_bottom {
+                width: 100%;
+                font-weight: 500;
+                color: #8c8a8a;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                &>span{
+                    padding-left: .2rem;
+                }
+            }
+        }
+    }
 }

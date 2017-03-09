@@ -1,4 +1,4 @@
-package com.cn.ask.dao;
+package com.cn.ask.com.cn.ask.dao;
 
 import com.cn.ask.model.Book;
 import com.cn.ask.model.BookExample;
