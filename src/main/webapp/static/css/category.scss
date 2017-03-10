@@ -18,11 +18,12 @@
         color: #797979;
         line-height: .8rem;
         position: relative;
-        padding-left: 1.1rem;
+        padding-left: .6rem;
         &:after {
             content: "\e654";
             position: absolute;
-            left: .9rem;
+            left: 1.06rem;
+            top: .02rem;
             color: #22A5D1;
         }
     }

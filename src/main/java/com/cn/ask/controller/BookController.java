@@ -14,8 +14,8 @@ import com.github.pagehelper.PageInfo;
 public class BookController {
 	@Autowired private BookService bookservice;
 	@RequestMapping(value="/getAllBooks" ,method=RequestMethod.GET)
-	public PageInfo<Book> getAllBooks(){
-		return bookservice.findBook(1,10);
+	public PageInfo<Book> getAllBooks(String name){
+		return bookservice.findBook(1,10,name);
 		
 	}
 }

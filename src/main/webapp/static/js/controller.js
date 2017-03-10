@@ -24,7 +24,10 @@ myapp.controller("loginCtr", ["$scope", "httpFactory", function($scope, httpFact
 }])
 
 myapp.controller("mybookrackCtr", ["$scope","httpFactory", function($scope,httpFactory) {
-    httpFactory.query("/book/getAllBooks","get").then(function (res) {
+	$scope.params={
+			name:""
+	}
+    httpFactory.query("/book/getAllBooks","get",$scope.params).then(function (res) {
         $scope.books=res.list;
     	console.log(res);
     },function () {
@@ -33,5 +36,22 @@ myapp.controller("mybookrackCtr", ["$scope","httpFactory", function($scope,httpF
 }])
 myapp.controller("bookCityCtr", ["$scope","httpFactory","$state", function($scope,httpFactory,$state) {
     $state.go("index.bookCity.boy");
+    
+}])
+myapp.controller("categoryCtr", ["$scope","httpFactory","$state", function($scope,httpFactory,$state) {
+
+    httpFactory.query("/tag/getAllTags","get").then(function (res) {
+    	console.log(res);
+    	$scope.newAddBook=1000;
+    	$scope.allBooks=0;
+    	for(var k in res.nums){
+    		$scope.allBooks+=res.nums[k];
+    	}
+    	//获取所有的分类和图书数量
+    	$scope.categories=res.tags;
+    	$scope.nums=res.nums;
+    },function () {
+        
+    })
     
 }])
