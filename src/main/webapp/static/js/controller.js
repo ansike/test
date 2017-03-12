@@ -4,6 +4,7 @@ myapp.controller("myCtr", ['$location', '$rootScope', '$scope', function($locati
 //    $rootScope.$on('$stateChangeStart',
 //        function(event, toState, toParams, fromState, fromParams) {
 //        })
+    
 }]);
 
 myapp.controller("loginCtr", ["$scope", "httpFactory", function($scope, httpFactory) {
