@@ -29,7 +29,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 '':{
                     templateUrl: './html/common.html',
                     controller: function($state){
-                        $state.go('index.mine');
+                        $state.go('index.mybookrack');
                     }
                 }
             }
@@ -100,6 +100,17 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 deps:["$ocLazyLoad",function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         "./css/loginRegister.css"
+                        ])
+                }]
+            }
+        })
+        .state("book", {
+            url: "/book/:id",
+            templateUrl: "./html/bookDetail.html",
+            resolve:{
+                deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        "./css/book.css"
                         ])
                 }]
             }

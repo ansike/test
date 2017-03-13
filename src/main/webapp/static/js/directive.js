@@ -5,4 +5,11 @@ myapp.directive('body',function () {
 			ele.css("height",ele.height()+"px");
 		}
 	}
-})
+});
+//myapp.directive("bookModal",function () {
+//	return{
+//		restrict:"C",
+//		link:function (scope,ele,attrs) {
+//		}
+//	}
+//})

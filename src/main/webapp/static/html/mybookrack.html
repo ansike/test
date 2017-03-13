@@ -15,7 +15,7 @@
                     <span class="recommend_book">布衣神算</span>
                 </div>
                 <ul >
-                    <li class="rack_li" ng-repeat="book in books">
+                    <li class="rack_li" ng-repeat="book in books" ng-click="getBook(book.bookId)">
                         <div class="book_pic">
                             <img ng-src={{book.coverPic}} />
                         </div>

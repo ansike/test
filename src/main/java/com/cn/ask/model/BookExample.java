@@ -634,6 +634,76 @@ public class BookExample {
             addCriterion("font_num not between", value1, value2, "fontNum");
             return (Criteria) this;
         }
+
+        public Criteria andBookUrlIsNull() {
+            addCriterion("book_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlIsNotNull() {
+            addCriterion("book_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlEqualTo(String value) {
+            addCriterion("book_url =", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlNotEqualTo(String value) {
+            addCriterion("book_url <>", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlGreaterThan(String value) {
+            addCriterion("book_url >", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("book_url >=", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlLessThan(String value) {
+            addCriterion("book_url <", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlLessThanOrEqualTo(String value) {
+            addCriterion("book_url <=", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlLike(String value) {
+            addCriterion("book_url like", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlNotLike(String value) {
+            addCriterion("book_url not like", value, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlIn(List<String> values) {
+            addCriterion("book_url in", values, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlNotIn(List<String> values) {
+            addCriterion("book_url not in", values, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlBetween(String value1, String value2) {
+            addCriterion("book_url between", value1, value2, "bookUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookUrlNotBetween(String value1, String value2) {
+            addCriterion("book_url not between", value1, value2, "bookUrl");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

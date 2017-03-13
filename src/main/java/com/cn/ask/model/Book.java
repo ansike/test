@@ -19,6 +19,8 @@ public class Book {
 
     private String fontNum;
 
+    private String bookUrl;
+
     public Integer getBookId() {
         return bookId;
     }
@@ -81,5 +83,13 @@ public class Book {
 
     public void setFontNum(String fontNum) {
         this.fontNum = fontNum == null ? null : fontNum.trim();
+    }
+
+    public String getBookUrl() {
+        return bookUrl;
+    }
+
+    public void setBookUrl(String bookUrl) {
+        this.bookUrl = bookUrl == null ? null : bookUrl.trim();
     }
 }
