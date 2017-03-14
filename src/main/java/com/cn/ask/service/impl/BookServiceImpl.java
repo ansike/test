@@ -62,9 +62,7 @@ public class BookServiceImpl implements BookService {
 			System.out.println("读取文件内容出错");
 			e.printStackTrace();
 		}
-
 		return txt;
-
 	}
 
 }

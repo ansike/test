@@ -91,7 +91,8 @@ function book($scope, $state, $stateParams, httpFactory) {
     httpFactory.query("/book/getBook", "get", params).then(
         function(res) {
             httpFactory.query(res.url, "get").then(function(resp) {
-            	var pageSize=450;
+            	//从directive中获取页面大小，并且计算好页面字数
+            	var pageSize=$scope.size;
                 var length = parseInt(resp.length / pageSize);
                 $scope.AllPage = length;
                 

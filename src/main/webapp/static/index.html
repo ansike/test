@@ -15,8 +15,7 @@ $(function () {
 	var rem = document.documentElement.clientWidth / 6.4;
 	document.getElementsByTagName('html')[0].style.fontSize = rem + 'px';
 	addEventListener('resize', function() {
-		var rem = document.documentElement.clientWidth / 6.4;
-		document.getElementsByTagName('html')[0].style.fontSize = rem + 'px';
+		window.location.reload();
 	});
 })
 	
