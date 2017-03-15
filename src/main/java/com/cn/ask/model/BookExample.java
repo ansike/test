@@ -704,6 +704,66 @@ public class BookExample {
             addCriterion("book_url not between", value1, value2, "bookUrl");
             return (Criteria) this;
         }
+
+        public Criteria andChapterIsNull() {
+            addCriterion("chapter is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterIsNotNull() {
+            addCriterion("chapter is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterEqualTo(Integer value) {
+            addCriterion("chapter =", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterNotEqualTo(Integer value) {
+            addCriterion("chapter <>", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterGreaterThan(Integer value) {
+            addCriterion("chapter >", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterGreaterThanOrEqualTo(Integer value) {
+            addCriterion("chapter >=", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterLessThan(Integer value) {
+            addCriterion("chapter <", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterLessThanOrEqualTo(Integer value) {
+            addCriterion("chapter <=", value, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterIn(List<Integer> values) {
+            addCriterion("chapter in", values, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterNotIn(List<Integer> values) {
+            addCriterion("chapter not in", values, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterBetween(Integer value1, Integer value2) {
+            addCriterion("chapter between", value1, value2, "chapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterNotBetween(Integer value1, Integer value2) {
+            addCriterion("chapter not between", value1, value2, "chapter");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

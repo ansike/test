@@ -39,6 +39,7 @@ public class BookServiceImpl implements BookService {
 	public Map getBook(Integer id) {
 		Map<String,String> bookUrl=new HashMap<>();
 		bookUrl.put("url", bookMapper.selectByPrimaryKey(id).getBookUrl());
+		bookUrl.put("chapterNum", bookMapper.selectByPrimaryKey(id).getChapter().toString());
 		return bookUrl;
 	}
 
