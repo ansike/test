@@ -21,6 +21,8 @@ public class Book {
 
     private String bookUrl;
 
+    private Integer chapter;
+
     public Integer getBookId() {
         return bookId;
     }
@@ -91,5 +93,13 @@ public class Book {
 
     public void setBookUrl(String bookUrl) {
         this.bookUrl = bookUrl == null ? null : bookUrl.trim();
+    }
+
+    public Integer getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(Integer chapter) {
+        this.chapter = chapter;
     }
 }

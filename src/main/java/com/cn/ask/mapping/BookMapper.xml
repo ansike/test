@@ -11,6 +11,7 @@
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="font_num" jdbcType="VARCHAR" property="fontNum" />
     <result column="book_url" jdbcType="VARCHAR" property="bookUrl" />
+    <result column="chapter" jdbcType="INTEGER" property="chapter" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    book_id, book_name, book_author, isupdate, cover_pic, info, state, font_num, book_url
+    book_id, book_name, book_author, isupdate, cover_pic, info, state, font_num, book_url, 
+    chapter
   </sql>
   <select id="selectByExample" parameterType="com.cn.ask.model.BookExample" resultMap="BaseResultMap">
     select
@@ -106,12 +108,12 @@
   <insert id="insert" parameterType="com.cn.ask.model.Book">
     insert into book (book_id, book_name, book_author, 
       isupdate, cover_pic, info, 
-      state, font_num, book_url
-      )
+      state, font_num, book_url, 
+      chapter)
     values (#{bookId,jdbcType=INTEGER}, #{bookName,jdbcType=VARCHAR}, #{bookAuthor,jdbcType=VARCHAR}, 
       #{isupdate,jdbcType=TIMESTAMP}, #{coverPic,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{fontNum,jdbcType=VARCHAR}, #{bookUrl,jdbcType=VARCHAR}
-      )
+      #{state,jdbcType=INTEGER}, #{fontNum,jdbcType=VARCHAR}, #{bookUrl,jdbcType=VARCHAR}, 
+      #{chapter,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.ask.model.Book">
     insert into book
@@ -143,6 +145,9 @@
       <if test="bookUrl != null">
         book_url,
       </if>
+      <if test="chapter != null">
+        chapter,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="bookId != null">
@@ -171,6 +176,9 @@
       </if>
       <if test="bookUrl != null">
         #{bookUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="chapter != null">
+        #{chapter,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -210,6 +218,9 @@
       <if test="record.bookUrl != null">
         book_url = #{record.bookUrl,jdbcType=VARCHAR},
       </if>
+      <if test="record.chapter != null">
+        chapter = #{record.chapter,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -225,7 +236,8 @@
       info = #{record.info,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=INTEGER},
       font_num = #{record.fontNum,jdbcType=VARCHAR},
-      book_url = #{record.bookUrl,jdbcType=VARCHAR}
+      book_url = #{record.bookUrl,jdbcType=VARCHAR},
+      chapter = #{record.chapter,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -257,6 +269,9 @@
       <if test="bookUrl != null">
         book_url = #{bookUrl,jdbcType=VARCHAR},
       </if>
+      <if test="chapter != null">
+        chapter = #{chapter,jdbcType=INTEGER},
+      </if>
     </set>
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
@@ -269,7 +284,8 @@
       info = #{info,jdbcType=VARCHAR},
       state = #{state,jdbcType=INTEGER},
       font_num = #{fontNum,jdbcType=VARCHAR},
-      book_url = #{bookUrl,jdbcType=VARCHAR}
+      book_url = #{bookUrl,jdbcType=VARCHAR},
+      chapter = #{chapter,jdbcType=INTEGER}
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
 </mapper>
