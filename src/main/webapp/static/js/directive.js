@@ -43,8 +43,8 @@ myapp.directive("bookBody", function() {
             var he = parseInt($(ele).height() / 25);
             scope.size = line * he;
             
-            $(".book_content ").on("click",function(){
-            	$(".modal-con").show();
+            $(".center").on("click",function(){
+            	$(".modal-con").css("display","flex");
             })
         }
     }
