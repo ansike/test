@@ -1,8 +1,9 @@
 package com.cn.ask.service.impl;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -52,11 +53,11 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public Map<String, Map<String, Object>> getCateBooks(Integer cate1, Integer cate2, Integer[] array) {
-		Map<String, Map<String, Object>> cateBooks = new HashMap<>();
+	public Map<String, Object> getCateBooks(Integer cate1, Integer cate2, Integer[] array) {
+		Map<String, Object> cateBooks = new HashMap<>();
 
 		
-		Map<String, Object> catebook1 = new HashMap<>();
+		List<Object> catebook1 = new ArrayList<>();
 		TagBookExample exampleMan = new TagBookExample();
 		exampleMan.createCriteria().andTagIdEqualTo(cate1);
 		for (int i = 0; i < array.length; i++) {
@@ -76,18 +77,15 @@ public class TagServiceImpl implements TagService {
 			}
 			
 			catebookMan.put("cateBooks", books);
-			catebook1.put(tagMapper.selectByPrimaryKey(cateId).getTagValue(), catebookMan);
+			catebook1.add(catebookMan);
 		}
 		//男人分类传入
 		cateBooks.put(tagMapper.selectByPrimaryKey(cate1).getTagValue(), catebook1);
-		
-		
-		
 
 		
-		Map<String, Object> catebook2 = new HashMap<>();
+		List<Object> catebook2 = new ArrayList<>();
 		TagBookExample exampleWoman = new TagBookExample();
-		exampleMan.createCriteria().andTagIdEqualTo(cate1);
+		exampleWoman.createCriteria().andTagIdEqualTo(cate2);
 		for (int i = 0; i < array.length; i++) {
 			Map<String, Object> catebookWoman = new HashMap<>();
 			int cateId = array[i];
@@ -104,12 +102,10 @@ public class TagServiceImpl implements TagService {
 				}
 			}
 			catebookWoman.put("cateBooks", books);
-			catebook2.put(tagMapper.selectByPrimaryKey(cateId).getTagValue(), catebookWoman);
+			catebook2.add(catebookWoman);
 		}
 		//女人分类传入
 		cateBooks.put(tagMapper.selectByPrimaryKey(cate2).getTagValue(), catebook2);
-		
-		
 		
 		return cateBooks;
 	}

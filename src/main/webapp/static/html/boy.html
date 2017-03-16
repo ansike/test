@@ -1,13 +1,13 @@
 <div class="list" ng-repeat="boy in boys">
     <div class="li_title sub_title">
-        <span class="ver_line"></span> <span class="title_recommend ">主编力荐：</span>
+        <span class="ver_line"></span> <span class="title_recommend ">{{boy.cateName}}</span>
         <span class="recommend_book">布衣神算</span>
         <div class="more font_icon ">
         	更多
         </div>
     </div>
     <ul class="bc_li_box" >
-    	<li class="bc_li" ng-repeat="book in boy">
+    	<li class="bc_li" ng-repeat="book in boy.cateBooks">
     		<div class="bc_pic fl">
     			<img ng-src={{book.coverPic}}>
     		</div>

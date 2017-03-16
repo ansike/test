@@ -34,7 +34,7 @@ public class tagController {
 	
 	@RequestMapping(value = "/bookCity")
 	@GetMapping
-	public Map<String, Map<String, Object>> bookCity() {
+	public Map<String, Object> bookCity() {
 		/**
 		 * *大体分类5为男生
 		 * 1，2，3
