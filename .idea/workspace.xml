@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d65b39b-a142-449d-990d-df0f23515890" name="Default" comment="第二个页面的路由设置">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/touch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/zepto.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/cn/ask/service/impl/BookServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/cn/ask/service/impl/BookServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cn/ask/service/impl/BookServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/cn/ask/service/impl/BookServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/books/0001/0001.txt" afterPath="$PROJECT_DIR$/src/main/webapp/static/books/0001/0001.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/css/book.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/book.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/css/book.css.map" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/book.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/css/book.scss" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/book.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/html/bookDetail.html" afterPath="$PROJECT_DIR$/src/main/webapp/static/html/bookDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/html/common.html" afterPath="$PROJECT_DIR$/src/main/webapp/static/html/common.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/directive.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/springboot/test/pom.properties" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/springboot/test/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,8 +62,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cn/ask/service/impl/BookServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1250">
-              <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-              <folding />
+              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+              <folding>
+                <marker date="1489547519966" expanded="true" signature="1366:1975" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,10 +107,10 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+            <state relative-caret-position="1400">
+              <caret line="56" column="6" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
               <folding>
-                <marker date="1489479659781" expanded="true" signature="26:63" ph="[...]" />
+                <marker date="1489565311263" expanded="true" signature="26:27" ph="[...]" />
               </folding>
             </state>
           </provider>
@@ -1174,7 +1161,7 @@
       <workItem from="1488776127842" duration="23394000" />
       <workItem from="1488948255360" duration="17300000" />
       <workItem from="1489367094991" duration="6017000" />
-      <workItem from="1489470284831" duration="646000" />
+      <workItem from="1489470284831" duration="1918000" />
     </task>
     <task id="LOCAL-00001" summary="第二个页面的路由设置">
       <created>1488793728727</created>
@@ -1225,11 +1212,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489399527320</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="图书页面">
+      <created>1489572852204</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1489572852204</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47357000" />
+    <option name="totallyTimeSpent" value="48629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="1" />
@@ -1304,7 +1298,8 @@
     <MESSAGE value="分类页面接口完成" />
     <MESSAGE value="category页面" />
     <MESSAGE value="打开图书显示图书内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="打开图书显示图书内容" />
+    <MESSAGE value="图书页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1344,7 +1339,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1489547519966" expanded="true" signature="1366:1975" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1373,7 +1370,7 @@
         <state relative-caret-position="825">
           <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
           <folding>
-            <marker date="1489479659781" expanded="true" signature="26:63" ph="[...]" />
+            <marker date="1489565311263" expanded="true" signature="26:27" ph="[...]" />
           </folding>
         </state>
       </provider>
@@ -1467,14 +1464,14 @@
         <state relative-caret-position="2675">
           <caret line="176" column="54" lean-forward="true" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
           <folding>
-            <marker date="1489371053544" expanded="true" signature="3511:3611" ph="select from book" />
-            <marker date="1489371053544" expanded="true" signature="3697:3751" ph="delete from " />
-            <marker date="1489371053544" expanded="true" signature="3845:3861" ph="delete from " />
-            <marker date="1489371053544" expanded="true" signature="4031:4269" ph="insert into book... " />
-            <marker date="1489371053544" expanded="true" signature="5367:5392" ph="select count... book" />
-            <marker date="1489371053544" expanded="true" signature="6306:6583" ph="update book " />
-            <marker date="1489371053544" expanded="true" signature="6784:7247" ph="update book " />
-            <marker date="1489371053544" expanded="true" signature="9864:9883" ph="update book " />
+            <marker date="1489547378451" expanded="true" signature="3511:3611" ph="select from book" />
+            <marker date="1489547378451" expanded="true" signature="3697:3751" ph="delete from " />
+            <marker date="1489547378451" expanded="true" signature="3845:3861" ph="delete from " />
+            <marker date="1489547378451" expanded="true" signature="4031:4269" ph="insert into book... " />
+            <marker date="1489547378451" expanded="true" signature="5367:5392" ph="select count... book" />
+            <marker date="1489547378451" expanded="true" signature="6306:6583" ph="update book " />
+            <marker date="1489547378451" expanded="true" signature="6784:7247" ph="update book " />
+            <marker date="1489547378451" expanded="true" signature="10429:10448" ph="update book " />
           </folding>
         </state>
       </provider>
@@ -1669,10 +1666,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+        <state relative-caret-position="1400">
+          <caret line="56" column="6" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
           <folding>
-            <marker date="1489479659781" expanded="true" signature="26:63" ph="[...]" />
+            <marker date="1489565311263" expanded="true" signature="26:27" ph="[...]" />
           </folding>
         </state>
       </provider>
@@ -1688,8 +1685,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cn/ask/service/impl/BookServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
-          <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-          <folding />
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <marker date="1489547519966" expanded="true" signature="1366:1975" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
