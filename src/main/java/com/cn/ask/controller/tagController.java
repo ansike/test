@@ -2,6 +2,7 @@
 package com.cn.ask.controller;
 
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,4 +31,17 @@ public class tagController {
 		return tagService.getTagBooks();
 
 	}
+	
+	@RequestMapping(value = "/bookCity")
+	@GetMapping
+	public Map<String, Map<String, Object>> bookCity() {
+		/**
+		 * *大体分类5为男生
+		 * 1，2，3
+		 * 6为女生
+		 */
+		Integer[] a={1,2,3};
+		return tagService.getCateBooks(5,6,a);
+	}
+	
 }
