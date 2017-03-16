@@ -1,4 +1,4 @@
-<div class="list">
+<div class="list" ng-repeat="boy in boys">
     <div class="li_title sub_title">
         <span class="ver_line"></span> <span class="title_recommend ">主编力荐：</span>
         <span class="recommend_book">布衣神算</span>
@@ -6,104 +6,19 @@
         	更多
         </div>
     </div>
-    <ul class="bc_li_box">
-    	<li class="bc_li">
+    <ul class="bc_li_box" >
+    	<li class="bc_li" ng-repeat="book in boy">
     		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
+    			<img ng-src={{book.coverPic}}>
     		</div>
     		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
+    			<h4 class="bc_title">{{book.bookName}}</h4>
+    			<p class="bc_txt">{{book.info}}</p>
     			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
-    				<span class="cate fr">武侠</span>
-    			</p>
-    		</div>
-    	</li>
-    	<li class="bc_li">
-    		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
-    		</div>
-    		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
-    			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
-    				<span class="cate fr">武侠</span>
-    			</p>
-    		</div>
-    	</li>
-    	<li class="bc_li">
-    		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
-    		</div>
-    		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
-    			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
-    				<span class="cate fr">武侠</span>
-    			</p>
-    		</div>
-    	</li>
-    </ul>
-</div>
-<div class="list">
-    <div class="li_title sub_title">
-        <span class="ver_line"></span> <span class="title_recommend">热门精选：</span>
-        <span class="recommend_book">布衣神算</span>
-        <div class="more font_icon ">
-        	更多
-        </div>
-    </div>
-    <ul class="bc_li_box">
-    	<li class="bc_li">
-    		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
-    		</div>
-    		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
-    			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
-    				<span class="cate fr">武侠</span>
-    			</p>
-    		</div>
-    	</li>
-    	<li class="bc_li">
-    		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
-    		</div>
-    		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
-    			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
-    				<span class="cate fr">武侠</span>
-    			</p>
-    		</div>
-    	</li>
-    	<li class="bc_li">
-    		<div class="bc_pic fl">
-    			<img src="./img/book_pic1.jpg">
-    		</div>
-    		<div class="bc_content fr">
-    			<h4 class="bc_title">民间绝密档案</h4>
-    			<p class="bc_txt">“最开始搞高铁的时候，想着速度这么快，旅程时间很短，没考虑供餐问题。”据王梦恕介绍，目前高铁上的供餐业务都是分包经营，铁路部门正在想办法给列车组加配餐车</p>
-    			<p class="bc_bottom">
-    				<span class="author_name fl">五一</span>
-    				<span class="font_num fr">190.3万字</span>
-    				<span class="state fr">连载</span>
+    				<span class="author_name fl">{{book.bookAuthor}}</span>
+    				<span class="font_num fr">{{book.fontNum}}</span>
+    				<span class="state fr" ng-if="book.state==1")>连载</span>
+    				<span class="state fr" ng-if="book.state==0")>完结</span>
     				<span class="cate fr">武侠</span>
     			</p>
     		</div>
