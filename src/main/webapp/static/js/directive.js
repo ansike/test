@@ -54,15 +54,18 @@ myapp.directive("modalCon", function() {
         restrict: "C",
         link: function(scope, ele, attrs, app) {
             var num,nowchapter, length,len;
+            
             scope.$watch(function() {
                 if (attrs.chapter != "") {
                     num = attrs.chapter;
-                    length = parseInt(200 / (num-1));
+                    length =(200 / (num-1)).toFixed(4);
                     nowchapter=attrs.nowchapter;
                     if(length!=""||length!=undefined){
                     	len=(nowchapter-1)*length
-                        if (len >= -5 && len <= 200) {
+                        if (len >= -5 && len <= 195) {
                         	$(".ball").css("left", len + "px");
+                        }else if(len>200){
+                        	$(".ball").css("left", "195px");
                         }
                     }
                 }
@@ -70,6 +73,7 @@ myapp.directive("modalCon", function() {
             $(".ball").on(
                 "touchstart",
                 function(eve) {
+                	
                     eve = eve.originalEvent.touches[0];
                     var x = eve.clientX;
                     var that = $(this);
@@ -77,7 +81,8 @@ myapp.directive("modalCon", function() {
                     $(document).on("touchmove", function(eve) {
                         eve = eve.originalEvent.touches[0];
                         len = eve.clientX - x + left;
-                        if (len >= -5 && len <= 195) {
+                       
+                        if (len >= -5 && len < 195) {
                             that.css("left", len + "px");
                         }
                     })
@@ -89,15 +94,21 @@ myapp.directive("modalCon", function() {
                             
                             var half = length / 2;
                             var index=0;
+                            
                             for (i = 0; i < num; i++) {
                                 if (len > (i * length - half) && len < (i * length + half)) {
                                     len = i * length;
                                     index=i;
                                 }
                             }
-                            if (len >= -5 && len <= 200) {
+                            
+                            if (len >= -5 && len < 195) {
                                 that.css("left", len + "px");
+                            }else if(len>195){
+                            	that.css("left", "195px");
+                            	index=--num;
                             }
+                            
                             scope.turnChapter(++index);
                             	
                         })
