@@ -1,0 +1,117 @@
+#detail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+  #detail .contain {
+    background: #FFFFFF; }
+  #detail .top {
+    border-bottom: solid 1px #EEEEF0; }
+    #detail .top .book_img {
+      width: 2rem;
+      height: 2.6rem;
+      margin-right: .2rem; }
+      #detail .top .book_img > img {
+        width: 100%;
+        height: 100%;
+        display: block; }
+    #detail .top .book_detail {
+      position: relative;
+      width: 3.6rem;
+      height: 2.6rem; }
+      #detail .top .book_detail > h3 {
+        font-size: .32rem;
+        line-height: .5rem; }
+      #detail .top .book_detail .box1 {
+        line-height: .5rem; }
+        #detail .top .book_detail .box1 .rank {
+          color: #F28077; }
+        #detail .top .book_detail .box1 .author {
+          color: #FBC642; }
+      #detail .top .book_detail .box2 {
+        color: #B2B2B2; }
+      #detail .top .book_detail .label_box {
+        width: 100%;
+        position: absolute;
+        bottom: 5px;
+        text-align: right;
+        color: #A9BAC8; }
+        #detail .top .book_detail .label_box > span {
+          margin-right: .2rem;
+          padding: .1rem;
+          background: #EFF0EF;
+          border-radius: 4px; }
+  #detail .center .btn_box {
+    margin-top: .4rem;
+    text-align: center;
+    border-top: solid 1px #EEEEF0;
+    border-bottom: solid 1px #EEEEF0; }
+    #detail .center .btn_box .btn {
+      width: 2.6rem;
+      height: .8rem;
+      margin: .3rem .16rem;
+      background: #FFFFFF;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: solid 1px #5ED9CD;
+      color: #5ED9CD; }
+    #detail .center .btn_box .read {
+      color: #FFFFFF;
+      background: #5ED9CD; }
+  #detail .center .introduce .book_info {
+    border-top: solid 1px #EEEEF0;
+    border-bottom: solid 1px #EEEEF0;
+    position: relative;
+    padding-bottom: .4rem; }
+    #detail .center .introduce .book_info .book_tx {
+      font-size: .22rem;
+      line-height: .32rem;
+      color: #959595; }
+    #detail .center .introduce .book_info .add_more:after {
+      content: "\25B2";
+      position: absolute;
+      right: 0.4rem;
+      bottom: 0;
+      font-size: .3rem;
+      color: #DDDDDD; }
+  #detail .center .introduce .toggleexpand .book_tx {
+    max-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; }
+  #detail .center .introduce .toggleexpand .add_more:after {
+    content: "\25BC"; }
+  #detail .center .introduce .catalog {
+    border-bottom: solid 1px #EEEEF0; }
+    #detail .center .introduce .catalog .cate_name > span:nth-child(1) {
+      font-size: .3rem; }
+    #detail .center .introduce .catalog > a {
+      color: #5ED9CD; }
+  #detail .bottom {
+    overflow: hidden; }
+    #detail .bottom .sub_title {
+      border-top: solid 1px #EEEEF0; }
+    #detail .bottom .book_box {
+      border-top: solid 1px #EEEEF0;
+      margin: 0 -.4rem;
+      padding: .4rem .3rem 0; }
+      #detail .bottom .book_box .book {
+        width: 1.4rem;
+        margin: 0 .4rem .4rem;
+        float: left; }
+        #detail .bottom .book_box .book .book_cover {
+          width: 100%;
+          height: 2rem;
+          margin-bottom: .1rem; }
+          #detail .bottom .book_box .book .book_cover > img {
+            width: 100%;
+            height: 100%; }
+        #detail .bottom .book_box .book .book_title {
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+
+/*# sourceMappingURL=details.css.map */

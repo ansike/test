@@ -1,0 +1,150 @@
+
+.header_bookCity {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .bookCity_tab {
+        position: absolute;
+        width: 2rem;
+        height: .5rem;
+        line-height: .5rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #B8F4FF;
+        .tabs {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+        .sex_checked {
+            background: #FFFFFF;
+            color: #5ED9CD;
+        }
+    }
+}
+
+.swiper-container {
+    width: 100%;
+    height: 2rem;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-slide {
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+}
+
+.swiper-slide>img {
+    width: 100%;
+    height: 100%;
+}
+
+.bookCity_cate {
+    width: 100%;
+    height: 1.4rem;
+    border-top: solid 1px #ebecec;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #FFFFFF;
+    .bookCity_cate_li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .new_book .nav_icon {
+        color: #00AAEC;
+    }
+    .over_book .nav_icon {
+        color: #F29116;
+    }
+    .rank_book .nav_icon {
+        color: #249F71;
+    }
+    .free_book .nav_icon {
+        color: #D14E33;
+    }
+}
+
+.boyAndGirl {
+    margin-top: .5rem;
+    .bc_li_box {
+        background: #FFFFFF;
+    }
+    .bc_li {
+        width: 100%;
+        height: 2.6rem;
+        box-sizing: border-box;
+        padding: .2rem;
+        border-top: solid 1px #ebecec;
+        .bc_pic {
+            width: 1.8rem;
+            height: 100%;
+            &>img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .bc_content {
+            width: 4rem;
+            height: 100%;
+            position: relative;
+            .bc_title {
+                font-size: .28rem;
+                font-weight: normal;
+                line-height: .56rem;
+            }
+            .bc_txt {
+                width: 100%;
+                height: 1rem;
+                overflow: hidden;
+                font-size: .22rem;
+                line-height: .32rem;
+                color: #AEAEAE;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+            .bc_bottom {
+                width: 100%;
+                font-weight: 500;
+                color: #8c8a8a;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                &>span{
+                    padding-left: .2rem;
+                }
+            }
+        }
+    }
+}

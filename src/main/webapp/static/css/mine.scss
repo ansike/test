@@ -1,0 +1,143 @@
+#mine {
+    .header {
+        .header_self {
+            text-align: center;
+            .self_center {
+                font-size: .3rem;
+            }
+        }
+    }
+    .myInfo {
+        background: #FFFFFF;
+        .myInfo_head {
+            border-bottom: solid 1px #ccc;
+            padding: .2rem;
+            position: relative;
+            &>dt {
+                width: 1rem;
+                height: 1rem;
+                margin-right: .5rem;
+                float: left;
+                &>img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                }
+            }
+            &>dd {
+                float: left;
+                line-height: 1rem;
+                display: block;
+                .username {
+                    font-size: 20px;
+                }
+                .state {
+                    font-size: .12rem;
+                    color: #cccccc;
+                }
+            }
+        }
+        .myInfo_head:before {
+            content: "\e60a";
+            position: absolute;
+            right: .5rem;
+            top: .56rem;
+            font-size: .3rem;
+        }
+    }
+    .half_box {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding-left: .5rem;
+        &:nth-of-type(1) {
+            border-right: solid 1px #D6D6D6;
+            margin-left: -1px;
+        }
+    }
+    .money {
+        background: #FFFFFF;
+        font-size: .3rem;
+        border-bottom: solid 1px #D6D6D6;
+        .half_box {
+            height: .75rem;
+            .font_icon {
+                padding-right: .2rem;
+                line-height: .75rem;
+            }
+            .fl {
+                font-size: .2rem;
+            }
+        }
+        .by_money {
+            .font_icon {
+                color: #00A9EA;
+                font-size: .4rem;
+            }
+        }
+        .by_gold {
+            .font_icon {
+                color: #F59822;
+            }
+        }
+    }
+    .top_up {
+        background: #FFFFFF;
+        border-bottom: solid 1px #D6D6D6;
+        border-top: solid 1px #D6D6D6;
+        margin-top: .4rem;
+        .half_box {
+            height: 1.2rem;
+            padding-top: .2rem;
+            padding-bottom: .2rem;
+            .txt {
+                width: 1.2rem;
+            }
+            .mine_title {
+                font-size: .3rem;
+            }
+            a.fl {
+                padding: 3px 10px;
+                border: solid 1px;
+                border-radius: 10px;
+                margin: .1rem;
+            }
+            .color4AB8DC {
+                color: #4AB8DC;
+                border-color: #4AB8DC;
+            }
+            .colorDCA14A {
+                color: #DCA14A;
+                border-color: #DCA14A;
+            }
+        }
+    }
+    .mine_list {
+        margin-top: .4rem;
+        background: #FFFFFF;
+        border-top: solid 1px #D6D6D6;
+        .ml_li {
+            box-sizing:border-box;
+            height: .7rem;
+            line-height: .73rem;
+            border-bottom: solid 1px #D6D6D6;
+            margin-left: .6rem;
+            padding-left: .2rem;
+            position: relative;
+            .before{
+                position: absolute;
+                left: -.36rem;
+                font-size: .3rem;
+                color: #4AB8DC;
+                top: .02rem;
+            }
+            .next{
+                position: absolute;
+                right: .2rem;
+            }
+        }
+        .ml_li:last-child{
+            border-bottom: 0;
+        }
+    }
+}

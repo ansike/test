@@ -1,0 +1,155 @@
+#detail {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .contain {
+        background: #FFFFFF;
+    }
+    .top {
+        border-bottom: solid 1px #EEEEF0;
+        .book_img {
+            width: 2rem;
+            height: 2.6rem;
+            margin-right: .2rem;
+            &>img {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+        .book_detail {
+            position: relative;
+            width: 3.6rem;
+            height: 2.6rem;
+            &>h3 {
+                font-size: .32rem;
+                line-height: .5rem;
+            }
+            .box1 {
+                line-height: .5rem;
+                .rank {
+                    color: #F28077;
+                }
+                .author {
+                    color: #FBC642;
+                }
+            }
+            .box2 {
+                color: #B2B2B2;
+            }
+            .label_box {
+                width: 100%;
+                position: absolute;
+                bottom: 5px;
+                text-align: right;
+                color: #A9BAC8;
+                &>span {
+                    margin-right: .2rem;
+                    padding: .1rem;
+                    background: #EFF0EF;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+    .center {
+        .btn_box {
+            margin-top: .4rem;
+            text-align: center;
+            border-top: solid 1px #EEEEF0;
+            border-bottom: solid 1px #EEEEF0;
+            .btn {
+                width: 2.6rem;
+                height: .8rem;
+                margin: .3rem .16rem;
+                background: #FFFFFF;
+                box-sizing: border-box;
+                border-radius: 4px;
+                border: solid 1px #5ED9CD;
+                color: #5ED9CD;
+            }
+            .read {
+                color: #FFFFFF;
+                background: #5ED9CD;
+            }
+        }
+        .introduce {
+            .book_info {
+                border-top: solid 1px #EEEEF0;
+                border-bottom: solid 1px #EEEEF0;
+                position: relative;
+                padding-bottom: .4rem;
+                .book_tx {
+                    font-size: .22rem;
+                    line-height: .32rem;
+                    color: #959595;
+                }
+                .add_more:after {
+                    content: "\25B2";
+                    position: absolute;
+                    right: 0.4rem;
+                    bottom: 0;
+                    font-size: .3rem;
+                    color: #DDDDDD;
+                }
+            }
+            .toggleexpand {
+                .book_tx {
+                    max-height: 1rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                }
+                .add_more:after {
+                    content: "\25BC";
+                }
+            }
+            .catalog {
+                border-bottom: solid 1px #EEEEF0;
+                .cate_name {
+                    &>span:nth-child(1) {
+                        font-size: .3rem;
+                    }
+                }
+                &>a {
+                    color: #5ED9CD
+                }
+            }
+        }
+    }
+    .bottom {
+    	overflow: hidden;
+    	.sub_title{
+            border-top: solid 1px #EEEEF0;
+			
+    	}
+        .book_box {
+            border-top: solid 1px #EEEEF0;
+            margin: 0 -.4rem;
+            padding: .4rem .3rem 0;
+            .book {
+                width: 1.4rem;
+                margin: 0 .4rem .4rem;
+                float: left;
+                .book_cover {
+                    width: 100%;
+                    height: 2rem;
+                    margin-bottom: .1rem;
+                    &>img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .book_title {
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}

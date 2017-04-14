@@ -1,0 +1,98 @@
+<div id="detail" class="com_class" ng-controller="detailsCtr">
+    <header class="header">
+        <div class="header_bookCity">
+            <span class="font_icon fl back_icon">&#xe609;</span>
+            <span class="nor_title" ng-click="back()">详情</span>
+        </div>
+    </header>
+    <div class="contain">
+        <div class="top clearfix p2">
+            <div class="book_img fl">
+                <img ng-src="{{book.pic}}">
+            </div>
+            <div class="book_detail fl">
+                <h3>{{book.bookName}}</h3>
+                <p class="box1">
+                    <span class="rank">A级签约</span>
+                    <span class="author">{{book.author}}</span>
+                </p>
+                <p class="box2">
+                    92.52万字&nbsp;677.9万点击
+                </p>
+                <p class="label_box">
+                    <span>都市</span>
+                    <span>连载</span>
+                </p>
+            </div>
+        </div>
+        <div class="center">
+            <div class="btn_box">
+                <button class="btn addCra">加入书架</button>
+                <button class="btn read" ng-click="getBook(bookId)">免费试读</button>
+            </div>
+            <div class="introduce">
+                <div class="li_title sub_title">
+                    <span class="ver_line"></span>
+                    <span class="recommend_book">简介</span>
+                </div>
+                <div class="p2 book_info toggleexpand">
+                    <p class="book_tx">
+                    {{book.info}}
+                    </p>
+                    <span class="add_more" ad-more "></span>
+                    </div>
+                </div>
+                <div class="catalog p2 clearfix ">
+                    <p class="cate_name fl ">
+                        <span>查看目录</span>
+                        <span>&nbsp;|19小时前更新</span>
+                    </p>
+                    <a href=" " class="fr ">共{{book.chapterNum}}章></a>
+                </div>
+            </div>
+            <div class="bottom ">
+                <div class="similar ">
+                    <div class="li_title sub_title ">
+                        <span class="ver_line "></span>
+                        <span class="recommend_book ">猜你喜欢</span>
+                    </div>
+                    <ul class="book_box clearfix ">
+                        <li class="book ">
+                            <div class="book_cover ">
+                                <img src="../img/欢乐颂.jpg ">
+                            </div>
+                            <p class="book_title ">女总裁的阿斯顿</p>
+                        </li>
+                        <li class="book ">
+                            <div class="book_cover ">
+                                <img src="../img/欢乐颂.jpg ">
+                            </div>
+                            <p class="book_title ">女总裁的阿斯顿</p>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="similar ">
+                    <div class="li_title sub_title ">
+                        <span class="ver_line "></span>
+                        <span class="recommend_book ">作者的其他书</span>
+                    </div>
+                    <ul class="book_box clearfix ">
+                        <li class="book ">
+                            <div class="book_cover ">
+                                <img src="../img/欢乐颂.jpg ">
+                            </div>
+                            <p class="book_title ">女总裁的阿斯顿</p>
+                        </li>
+                        <li class="book ">
+                            <div class="book_cover ">
+                                <img src="../img/欢乐颂.jpg ">
+                            </div>
+                            <p class="book_title ">女总裁的阿斯顿</p>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+    </div>
+</div>

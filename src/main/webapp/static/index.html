@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtr">
+
+<head>
+<title>我的书屋</title>
+<meta charset="utf-8">
+<link href="./css/font.css" rel="stylesheet" type="text/css" />
+<link href="./css/public.css" rel="stylesheet" type="text/css" />
+<link href="./css/toastr.css" rel="stylesheet" type="text/css" />
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function () {
+	var rem = document.documentElement.clientWidth / 6.4;
+	document.getElementsByTagName('html')[0].style.fontSize = rem + 'px';
+	addEventListener('resize', function() {
+		window.location.reload();
+	});
+})
+	
+</script>
+</head>
+
+<body >
+	<div class="container" ui-view="">
+	</div>
+</body>
+
+<script type="text/javascript" src="./js/angular.min.js"></script>
+<script type="text/javascript" src="./js/angular-ui-router.js"></script>
+<script type="text/javascript" src="./js/ocLazyLoad.js"></script>
+<script type="text/javascript" src="./js/config.js"></script>
+<script type="text/javascript" src="./js/directive.js"></script>
+<script type="text/javascript" src="./js/service.js"></script>
+<script type="text/javascript" src="./js/controller.js"></script>
+<script type="text/javascript" src="./js/toastr.min.js"></script>
+<script>
+//toast基本配置
+toastr.options = {
+    "closeButton": false, // 是否显示关闭按钮
+    "debug": false, // 是否使用debug模式
+    "positionClass": "toast-center-half-width", // 弹出窗的位置
+    "showDuration": "300", // 显示的动画时间
+    "hideDuration": "500", // 消失的动画时间
+    "timeOut": "1000", // 展现时间
+    "extendedTimeOut": "100", // 加长展示时间
+    "showEasing": "swing", // 显示时的动画缓冲方式
+    "hideEasing": "linear", // 消失时的动画缓冲方式
+    "showMethod": "fadeIn", // 显示时的动画方式
+    "hideMethod": "fadeOut" // 消失时的动画方式
+};
+</script>
+</html>
