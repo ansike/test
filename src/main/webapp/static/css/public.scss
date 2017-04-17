@@ -87,6 +87,7 @@ html {
 }
 .back_icon {
     margin-left: .2rem;
+    font-size: .26rem;
 }
 .container {
     width: 100%;
@@ -94,7 +95,7 @@ html {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-size: .12rem;
+    font-size: .24rem;
     .body {
         width: 100%;
         overflow: hidden;
@@ -162,6 +163,9 @@ html {
             }
             .navActive {
                 color: #19A2DD;
+                &>a{
+                    color: #19A2DD;
+                }
             }
         }
     }
