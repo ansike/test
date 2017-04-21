@@ -1,13 +1,18 @@
 package com.cn.ask.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -19,7 +24,9 @@ import com.alibaba.druid.util.StringUtils;
 import com.cn.ask.model.User;
 import com.cn.ask.service.UserService;
 import com.cn.ask.utils.MD5Util;
-import com.github.pagehelper.PageInfo;
+
+import com.google.code.kaptcha.Constants;
+import com.google.code.kaptcha.Producer;
 
 @RestController
 @RequestMapping("user")
@@ -33,6 +40,9 @@ public class userController {
 	
 	@Autowired
 	private StringRedisTemplate redis;
+	
+	@Autowired
+	private Producer kaptchaProducer;
 
 	@RequestMapping(value = "checkUser", method = RequestMethod.POST)
 	public Map<String, String> checkUser(String phone, String password, String randomCode, Boolean rememberMe) {
@@ -41,7 +51,12 @@ public class userController {
 		String code = "1234";
 		String turncode = "200";
 		String msg = "登录成功";
-
+		if(!randomCode.equalsIgnoreCase((String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY))){
+			turncode = "203";
+			msg = "验证码错误";
+		}else{
+			
+		}
 		if (user == null) {
 			turncode = "100";
 			msg = "用户不存在！";
@@ -49,10 +64,6 @@ public class userController {
 			if (!user.getPassword().equals(MD5Util.string2MD5(password))) {
 				turncode = "201";
 				msg = "密码错误！";
-			}
-			if (!code.equals(randomCode)) {
-				turncode = "202";
-				msg = "验证码错误！";
 			}
 		}
 
@@ -118,5 +129,48 @@ public class userController {
 		returnMap.put("msg", msg);
 
 		return returnMap;
+	}
+	/**
+	 * 获取图片验证码
+	 * 
+	 * @author XiRuiQiang 2017年2月15日 上午11:04:18
+	 * @throws IOException
+	 */
+	@RequestMapping("/getRandomCode")
+	public void getRandomCode(HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+
+		response.setDateHeader("Expires", 0);
+
+		// Set standard HTTP/1.1 no-cache headers.
+		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+
+		// Set IE extended HTTP/1.1 no-cache headers (use addHeader).
+		response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+
+		// Set standard HTTP/1.0 no-cache header.
+		response.setHeader("Pragma", "no-cache");
+
+		// return a jpeg
+		response.setContentType("image/jpeg");
+
+		// create the text for the image
+		String capText = kaptchaProducer.createText();
+
+		// store the text in the session
+		session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
+
+		// create the image with the text
+		BufferedImage bi = kaptchaProducer.createImage(capText);
+		ServletOutputStream out = response.getOutputStream();
+
+		// write the data out
+		ImageIO.write(bi, "jpg", out);
+		try {
+			out.flush();
+		} finally {
+			out.close();
+		}
+
 	}
 }

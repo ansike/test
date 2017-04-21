@@ -60,6 +60,7 @@ myapp.controller("loginCtr", [
         		toastr.info("密码为4位！");
         		return;
         	}
+        	debugger
         	$scope.Params = {
                     "phone": phone.value,
                     "password": password.value,
