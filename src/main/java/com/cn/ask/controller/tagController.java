@@ -25,10 +25,10 @@ public class tagController {
 
 	}
 
-	@RequestMapping(value = "/getTags")
+	@RequestMapping(value = "/getBooksByTagId")
 	@GetMapping
-	public Map<String, Long> getTags() {
-		return tagService.getTagBooks();
+	public Map<String, Object> getTags(Integer tagId) {
+		return tagService.getBooksByTagid(tagId);
 
 	}
 	

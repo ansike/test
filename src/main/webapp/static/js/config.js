@@ -127,5 +127,16 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
             }
 
         })
+        .state("cateList", {
+            url: "/cateList?tagId",
+            templateUrl: "./html/cateList.html",
+            resolve:{
+                deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        "./css/cateList.css"
+                        ])
+                }]
+            }
+        })
 });
 

@@ -74,9 +74,11 @@ html {
 .fr {
     float: right;
 }
-.p2{
+
+.p2 {
     padding: .2rem;
 }
+
 .clearfix:after {
     content: "";
     display: block;
@@ -85,17 +87,25 @@ html {
     overflow: hidden;
     clear: both;
 }
+
 .back_icon {
     margin-left: .2rem;
     font-size: .26rem;
 }
+
 .container {
-    width: 100%;
+    width: 100%;        
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     font-size: .24rem;
+    #detail,#cateList {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .body {
         width: 100%;
         overflow: hidden;
@@ -163,7 +173,7 @@ html {
             }
             .navActive {
                 color: #19A2DD;
-                &>a{
+                &>a {
                     color: #19A2DD;
                 }
             }

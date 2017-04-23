@@ -1,8 +1,8 @@
 <div class="list" ng-repeat="boy in boys">
     <div class="li_title sub_title">
         <span class="ver_line"></span> <span class="title_recommend ">{{boy.cateName}}</span>
-        <span class="recommend_book">布衣神算</span>
-        <div class="more font_icon ">
+        <!-- <span class="recommend_book">布衣神算</span> -->
+        <div class="more font_icon " ui-sref="cateList({tagId:boy.tagId})">
         	更多
         </div>
     </div>

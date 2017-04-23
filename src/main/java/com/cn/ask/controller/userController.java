@@ -37,10 +37,10 @@ public class userController {
 	private HttpServletRequest request;
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private StringRedisTemplate redis;
-	
+
 	@Autowired
 	private Producer kaptchaProducer;
 
@@ -48,44 +48,43 @@ public class userController {
 	public Map<String, String> checkUser(String phone, String password, String randomCode, Boolean rememberMe) {
 		Map<String, String> returnMap = new HashMap<>();
 		User user = userService.checkUser(phone);
-		String code = "1234";
 		String turncode = "200";
 		String msg = "登录成功";
-		if(!randomCode.equalsIgnoreCase((String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY))){
+		if (!randomCode.equalsIgnoreCase((String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY))) {
 			turncode = "203";
 			msg = "验证码错误";
-		}else{
-			
-		}
-		if (user == null) {
-			turncode = "100";
-			msg = "用户不存在！";
 		} else {
-			if (!user.getPassword().equals(MD5Util.string2MD5(password))) {
-				turncode = "201";
-				msg = "密码错误！";
+			if (user == null) {
+				turncode = "100";
+				msg = "用户不存在！";
+			} else {
+				if (!user.getPassword().equals(MD5Util.string2MD5(password))) {
+					turncode = "201";
+					msg = "密码错误！";
+				} else {
+					// REMEMBERME
+					if (rememberMe != null && rememberMe) {
+						// 加密用户名
+						String cookieValue = MD5Util.string2MD5(phone + Math.random());
+						String cookieKey = "ASK_LOGIN";
+						Cookie cookie = new Cookie(cookieKey, cookieValue);
+						redis.opsForValue().set(cookieValue, user.getPhone());
+						redis.boundValueOps(cookieValue).expire(7, TimeUnit.DAYS);
+						cookie.setMaxAge(604800);// 秒：60*60*24*7//记住7天
+						cookie.setPath("/");
+						response.addCookie(cookie);
+					} else {
+						request.getSession().setAttribute("ASK_LOGIN", user);
+					}
+				}
 			}
-		}
-
-		// REMEMBERME
-		if (rememberMe != null && rememberMe) {
-			// 加密用户名
-			String cookieValue = MD5Util.string2MD5(phone + Math.random());
-			String cookieKey = "ASK_LOGIN";
-			Cookie cookie = new Cookie(cookieKey, cookieValue);
-			redis.opsForValue().set(cookieValue, user.getPhone());
-			redis.boundValueOps(cookieValue).expire(7, TimeUnit.DAYS);
-			cookie.setMaxAge(604800);// 秒：60*60*24*7//记住7天
-			cookie.setPath("/");
-			response.addCookie(cookie);
-		} else {
-			request.getSession().setAttribute("ASK_LOGIN", user);
 		}
 		returnMap.put("code", turncode);
 		returnMap.put("msg", msg);
 		return returnMap;
 	}
-	@RequestMapping(value="/checkLogin")
+
+	@RequestMapping(value = "/checkLogin")
 	public User checkLogin() {
 		User user = (User) request.getSession().getAttribute("ASK_LOGIN");
 		if (user == null) {
@@ -98,9 +97,9 @@ public class userController {
 					}
 				}
 				if (!StringUtils.isEmpty(login_key)) {
-					String phone=redis.opsForValue().get(login_key);
-					if(!StringUtils.isEmpty(phone)){
-						user=userService.findByPhone(phone);
+					String phone = redis.opsForValue().get(login_key);
+					if (!StringUtils.isEmpty(phone)) {
+						user = userService.findByPhone(phone);
 						request.getSession().setAttribute("ASK_LOGIN", user);
 					}
 				}
@@ -113,23 +112,30 @@ public class userController {
 	public Map<String, String> register(String phone, String password, String randomCode) {
 		Map<String, String> returnMap = new HashMap<String, String>();
 		User user = userService.checkUser(phone);
+
 		String turncode = "";
 		String msg = "";
-		if (user != null) {
-			turncode = "100";
-			msg = "用户已经存在！";
+		if (!randomCode.equalsIgnoreCase((String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY))) {
+			turncode = "203";
+			msg = "验证码错误";
 		} else {
-			if(userService.insertUser(phone,password)){
-				turncode = "200";
-				msg = "注册成功";
+			if (user != null) {
+				turncode = "100";
+				msg = "用户已经存在！";
+			} else {
+				if (userService.insertUser(phone, password)) {
+					turncode = "200";
+					msg = "注册成功";
+				}
 			}
 		}
-		
+
 		returnMap.put("code", turncode);
 		returnMap.put("msg", msg);
 
 		return returnMap;
 	}
+
 	/**
 	 * 获取图片验证码
 	 * 

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.cn.ask.dao.BookMapper;
 import com.cn.ask.dao.TagBookMapper;
 import com.cn.ask.dao.TagMapper;
+import com.cn.ask.model.Book;
+import com.cn.ask.model.BookExample;
 import com.cn.ask.model.Tag;
 import com.cn.ask.model.TagBook;
 import com.cn.ask.model.TagBookExample;
@@ -52,6 +54,8 @@ public class TagServiceImpl implements TagService {
 		return books;
 	}
 
+	
+	
 	@Override
 	public Map<String, Object> getCateBooks(Integer cate1, Integer cate2, Integer[] array) {
 		Map<String, Object> cateBooks = new HashMap<>();
@@ -108,6 +112,21 @@ public class TagServiceImpl implements TagService {
 		cateBooks.put(tagMapper.selectByPrimaryKey(cate2).getTagValue(), catebook2);
 		
 		return cateBooks;
+	}
+
+	@Override
+	public Map<String,Object> getBooksByTagid(Integer tagId) {
+		Map<String,Object> books=new HashMap<>();
+		Set<Object> b = new HashSet<>();
+		TagBookExample tbexample=new TagBookExample();
+		tbexample.createCriteria().andTagIdEqualTo(tagId);
+		for(TagBook tb:tagBookMapper.selectByExample(tbexample)){
+			//将取到的所有书籍放入set中
+			b.add(bookMapper.selectByPrimaryKey(tb.getBookId()));
+		}
+		books.put("name", tagMapper.selectByPrimaryKey(tagId).getTagValue());
+		books.put("data", b);
+		return books;
 	}
 
 }

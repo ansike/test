@@ -21,7 +21,7 @@ myapp.controller("myCtr", ['$location', '$rootScope', '$scope', '$window','$stat
         $scope.user
         $scope.$on("Ctr1NameChange",function (event, msg) {
         	$scope.user=msg;
-//        	$scope.$broadcast("Ctr1NameChangeFromParrent", msg);
+// $scope.$broadcast("Ctr1NameChangeFromParrent", msg);
         });
         httpFactory.query("/user/checkLogin").then(function(res){
         	$scope.user=res;
@@ -35,7 +35,7 @@ myapp.controller("loginCtr", [
     "$scope",
     "httpFactory","$state","$rootScope",
     function($scope, httpFactory,$state,$rootScope) {
-        //登陆注册切换
+        // 登陆注册切换
         $scope.isLogin=true;
         $scope.toggleLogin=function () {
             $scope.isLogin?$scope.isLogin=false:$scope.isLogin=true;
@@ -60,7 +60,6 @@ myapp.controller("loginCtr", [
         		toastr.info("密码为4位！");
         		return;
         	}
-        	debugger
         	$scope.Params = {
                     "phone": phone.value,
                     "password": password.value,
@@ -88,7 +87,7 @@ myapp.controller("loginCtr", [
         		return;
         	}
         	if(comfirmCode.value.length<4){
-        		toastr.info("密码为4位！");
+        		toastr.info("验证码为4位！");
         		return;
         	}
         	$scope.Params = {
@@ -299,3 +298,11 @@ function details($scope, $state, $stateParams, httpFactory) {
         // error
     })
 }
+
+
+myapp.controller("cateList",["$state","$scope","$stateParams","httpFactory",function($state,$scope,$stateParams,httpFactory){
+    	 httpFactory.query("/tag/getBooksByTagId","get",{tagId:$stateParams.tagId}).then(function(res){
+         	$scope.name=res.name;
+    		 $scope.books=res.data;
+         })
+}])

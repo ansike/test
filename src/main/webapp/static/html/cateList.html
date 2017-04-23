@@ -1,0 +1,32 @@
+<div id="cateList" ng-controller="cateList">
+    <!--  -->
+    <header class="header">
+        <div class="header_bookCity">
+            <span class="font_icon fl back_icon">&#xe609;</span>
+            <span class="nor_title" ng-click="back()">{{name}}</span>
+        </div>
+    </header>
+    <div class="contain">
+		<ul class="list_body">
+			<li class="list_child clearfix p2" ng-repeat="book in books">
+				<div class="img_box fl">
+					<img ng-src="{{book.coverPic}}" alt="">
+				</div>
+				<div class="content_box fl">
+					<h3 class="con_title clearfix">
+						<span class="title fl">{{book.bookName}}</span>
+						<span class="click fr">1231万点击</span>
+					</h3>
+					<p class="con_txt">
+					{{book.info}}
+					</p>
+					<p class="con_info">
+						<span class="author">{{book.bookAuthor}}</span>
+						<span class="label fr">黑道风云</span>
+						<span class="label fr">全本</span>
+					</p>
+				</div>
+			</li>
+		</ul>
+    </div>
+</div>

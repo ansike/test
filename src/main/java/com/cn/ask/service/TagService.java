@@ -8,4 +8,5 @@ public interface TagService {
 	Map getAllTags();
 	Map<String,Long> getTagBooks();
 	Map<String,Object> getCateBooks(Integer cate1,Integer cate2,Integer[] a);
+	Map<String,Object> getBooksByTagid(Integer tagId);
 }
