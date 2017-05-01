@@ -4,15 +4,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cn.ask.dao.BookMapper;
+import com.cn.ask.dao.TagMapper;
+import com.cn.ask.dao.UserMapper;
 import com.cn.ask.model.Book;
 import com.cn.ask.model.BookExample;
+import com.cn.ask.model.TagExample;
 import com.cn.ask.service.BookService;
 import com.github.pagehelper.PageInfo;
 
@@ -21,7 +26,12 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	private BookMapper bookMapper;
+	
+	@Autowired
+	private TagMapper tagMapper;
 
+	@Autowired
+	private UserMapper userMapper;
 	@Override
 	public PageInfo<Book> findBook(Integer start, Integer size, String name) {
 
@@ -68,6 +78,36 @@ public class BookServiceImpl implements BookService {
 			e.printStackTrace();
 		}
 		return txt;
+	}
+
+	@Override
+	public List<Object>  search(String name) {
+		
+		List<Object> resList=new ArrayList<>();
+		
+		//作者名字
+		Map<String,Object> res1=new HashMap<>();
+		BookExample be=new BookExample();
+		be.createCriteria().andBookAuthorLike("%"+name+"%");
+		res1.put("name", "author");
+		res1.put("data", bookMapper.selectByExample(be));
+		
+		//书名字
+		Map<String,Object> res2=new HashMap<>();
+		BookExample be2=new BookExample();
+		be2.createCriteria().andBookNameLike("%"+name+"%");
+		res2.put("name", "book");
+		res2.put("data", bookMapper.selectByExample(be2));
+		//分类
+		Map<String,Object> res3=new HashMap<>();
+		TagExample te =new TagExample();
+		te.createCriteria().andTagValueLike("%"+name+"%");
+		res3.put("name", "tag");
+		res3.put("data", tagMapper.selectByExample(te));
+		resList.add(res1);
+		resList.add(res2);
+		resList.add(res3);
+		return resList;
 	}
 
 }

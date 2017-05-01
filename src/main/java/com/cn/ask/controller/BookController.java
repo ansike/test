@@ -1,5 +1,6 @@
 package com.cn.ask.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,10 @@ public class BookController {
 	@RequestMapping("/getBook")
 	public Map getBook(Integer id){
 		return bookservice.getBook(id);
+	}
+	@RequestMapping("/search")
+	public List search(String name){
+		return bookservice.search(name);
 	}
 	
 }

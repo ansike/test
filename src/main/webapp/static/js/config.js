@@ -138,5 +138,16 @@ myapp.config(function ($stateProvider, $urlRouterProvider) {
                 }]
             }
         })
+        .state("searchList", {
+            url: "/searchList",
+            templateUrl: "./html/searchList.html",
+            resolve:{
+                deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        "./css/searchList.css"
+                        ])
+                }]
+            }
+        })
 });
 

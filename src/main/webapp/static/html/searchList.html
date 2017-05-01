@@ -1,0 +1,37 @@
+<div id="searchList" class="com_class" ng-controller="search">
+    <header class="header">
+        <div class="header_bookCity">
+            <span class="font_icon fl back_icon" ui-sref="index.mybookrack">&#xe609;</span>
+            <div id="search_box" class="fl">
+                <input id="search" type="text" ng-change="search()" ng-blur="close()" ng-model="name" name="" value="" placeholder="请输入作品名或者作者">
+                <span ng-click="clear()" id="clear" class="font_icon">&#xe643;</span>
+                <span class="font_icon " id="sbtn" ng-click="search()">&#xe608;</span>
+            </div>
+        </div>
+    </header>
+    <div id="search_result" ng-if="listBody">
+        <ul id="fromAuthor" ng-if="author.data.length>0">
+            <li ng-repeat="au in author.data"><span class="font_icon icon">&#xe604;</span><span class="content">{{au.bookAuthor.substr(0,au.bookAuthor.indexOf(name))}}<b class="active">{{name}}</b>{{au.bookAuthor.substr(au.bookAuthor.indexOf(name)+name.length)}}</span></li>
+        </ul>
+        <ul id="fromCate" ng-if="book.data.length>0">
+            <li ng-repeat="bo in book.data"><span class="font_icon icon">&#xe612;</span><span class="content">{{bo.bookName.substr(0,bo.bookName.indexOf(name))}}<b class="active">{{name}}</b>{{bo.bookName.substr(bo.bookName.indexOf(name)+name.length)}}</span></li>
+        </ul>
+        <ul id="fromBook" ng-if="tag.data.length>0">
+            <li ng-repeat="ta in tag.data"><span class="font_icon icon">&#xe614;</span><span class="content">{{ta.tagValue.substr(0,ta.tagValue.indexOf(name))}}<b class="active">{{name}}</b>{{ta.tagValue.substr(ta.tagValue.indexOf(name)+name.length)}}</span></li>
+        </ul>
+        <p ng-if="book.data.length==0&&book.data.length==0&&tag.data.length==0" style="text-align:center;line-height:30px">没有内容！</p>
+    </div>
+    <div class="contain">
+        <div id="search_record">
+            <h4 class="title">搜索记录</h4>
+            <ul class="content">
+                <li class="child clearfix"><span class="name fl">《斗破》</span><span class="close fr">&times;</span></li>
+                <li class="child clearfix"><span class="name fl">《斗破》</span><span class="close fr">&times;</span></li>
+                <li class="child clearfix"><span class="name fl">《斗破》</span><span class="close fr">&times;</span></li>
+                <li class="child clearfix"><span class="name fl">《斗破》</span><span class="close fr">&times;</span></li>
+                <li class="child clearfix"><span class="name fl">《斗破》</span><span class="close fr">&times;</span></li>
+
+            </ul>
+        </div>
+    </div>
+</div>

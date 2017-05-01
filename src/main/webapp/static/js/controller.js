@@ -1,114 +1,122 @@
-myapp.controller("myCtr", ['$location', '$rootScope', '$scope', '$window','$state','httpFactory',
-    function($location, $rootScope, $scope, $window,$state,httpFactory) {
+myapp.controller("myCtr", ['$location', '$rootScope', '$scope', '$window', '$state', 'httpFactory',
+    function($location, $rootScope, $scope, $window, $state, httpFactory) {
 
         // //监听路由变化，实现导航动态变化
         // $rootScope.$on('$stateChangeStart',
         // function(event, toState, toParams, fromState, fromParams) {
         // })
-		// $scope.user=$rootScope.user;
-		
+        // $scope.user=$rootScope.user;
+
         $scope.back = function() {
-        	console.log($location.url());
-            $window.history.back();
-        }
-        // 获取一本书，进行阅读
+                console.log($location.url());
+                $window.history.back();
+            }
+            // 获取一本书，进行阅读
         $scope.getBook = function(bookId) {
-            $state.go("book", {
-                id: bookId
-            });
-        }
-        // 获取url
+                $state.go("book", {
+                    id: bookId
+                });
+            }
+            // 获取url
         $scope.user
-        $scope.$on("Ctr1NameChange",function (event, msg) {
-        	$scope.user=msg;
-// $scope.$broadcast("Ctr1NameChangeFromParrent", msg);
+        $scope.$on("Ctr1NameChange", function(event, msg) {
+            $scope.user = msg;
+            // $scope.$broadcast("Ctr1NameChangeFromParrent", msg);
         });
-        httpFactory.query("/user/checkLogin").then(function(res){
-        	$scope.user=res;
+        httpFactory.query("/user/checkLogin").then(function(res) {
+            $scope.user = res;
         })
-        
-        
+
+
     }
 ]);
 
 myapp.controller("loginCtr", [
     "$scope",
-    "httpFactory","$state","$rootScope",
-    function($scope, httpFactory,$state,$rootScope) {
-        // 登陆注册切换
-        $scope.isLogin=true;
-        $scope.toggleLogin=function () {
-            $scope.isLogin?$scope.isLogin=false:$scope.isLogin=true;
+    "httpFactory", "$state", "$rootScope",
+    function($scope, httpFactory, $state, $rootScope) {
+        // 验证码初始化
+        $scope.changeImg = function() {
+            $scope.imgSrc = "/user/getRandomCode?random=" + Math.random();
+
         }
-        $scope.checkPhone=function(phone){
-        	var reg = /^(13[0-9]|14[579]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/;
-        	if(reg.test(phone)){
-        		return true;
-        	}
-    		toastr.info("请重新输入正确的手机号！");
-        	return false;
+        $scope.changeImg();
+
+        // 登陆注册切换
+        $scope.isLogin = true;
+        $scope.toggleLogin = function() {
+            $scope.changeImg();
+            $scope.isLogin ? $scope.isLogin = false : $scope.isLogin = true;
+        }
+        $scope.checkPhone = function(phone) {
+            var reg = /^(13[0-9]|14[579]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/;
+            if (reg.test(phone)) {
+                return true;
+            }
+            toastr.info("请重新输入正确的手机号！");
+            return false;
         }
         $scope.login = function() {
-        	if(!$scope.checkPhone(phone.value)){
-        		return;
-        	}
-        	if(password.value.length<6){
-        		toastr.info("密码至少为6位！");
-        		return;
-        	}
-        	if(comfirmCode.value.length<4){
-        		toastr.info("密码为4位！");
-        		return;
-        	}
-        	$scope.Params = {
-                    "phone": phone.value,
-                    "password": password.value,
-                    "randomCode": comfirmCode.value,
-                    "rememberMe":true
-                }
+            if (!$scope.checkPhone(phone.value)) {
+                return;
+            }
+            if (password.value.length < 6) {
+                toastr.info("密码至少为6位！");
+                return;
+            }
+            if (comfirmCode.value.length < 4) {
+                toastr.info("密码为4位！");
+                return;
+            }
+            $scope.Params = {
+                "phone": phone.value,
+                "password": password.value,
+                "randomCode": comfirmCode.value,
+                "rememberMe": true
+            }
             httpFactory.query("/user/checkUser", "post", $scope.Params)
                 .then(function(res) {
-                	if(res.code=="200"){
-                		$scope.$emit("Ctr1NameChange", $scope.Params);
-                		$state.go("index.mine")
-                	}else{
-                		toastr.error(res.msg);
-                	}
+                    if (res.code == "200") {
+                        $scope.$emit("Ctr1NameChange", $scope.Params);
+                        $state.go("index.mine")
+                    } else {
+                        toastr.error(res.msg);
+                    }
                 }, function(res) {
-                	toastr.error(res.message);
+                    toastr.error(res.message);
                 })
         }
         $scope.register = function() {
-        	if(!$scope.checkPhone(phone.value)){
-        		return;
-        	}
-        	if(password.value.length<6){
-        		toastr.info("密码至少为6位！");
-        		return;
-        	}
-        	if(comfirmCode.value.length<4){
-        		toastr.info("验证码为4位！");
-        		return;
-        	}
-        	$scope.Params = {
-                    "phone": phone.value,
-                    "password": password.value,
-                    "randomCode": comfirmCode.value,
-                    "rememberMe":true
-                }
-        	httpFactory.query("/user/register", "post", $scope.Params)
-            .then(function(res) {
-            	if(res.code=="200"){
-            		httpFactory.query("/user/checkUser", "post", $scope.Params)
-            		$scope.$emit("Ctr1NameChange", $scope.Params);
-            		$state.go("index.mine")
-            	}else{
-            		toastr.error(res.msg);
-            	}
-                console.log(res);
-            }, function(res) {
-                console.log(res)
-            })
+            if (!$scope.checkPhone(phone.value)) {
+                return;
+            }
+            if (password.value.length < 6) {
+                toastr.info("密码至少为6位！");
+                return;
+            }
+            if (comfirmCode.value.length < 4) {
+                toastr.info("验证码为4位！");
+                return;
+            }
+            $scope.Params = {
+                "phone": phone.value,
+                "password": password.value,
+                "randomCode": comfirmCode.value,
+                "rememberMe": true
+            }
+            httpFactory.query("/user/register", "post", $scope.Params)
+                .then(function(res) {
+                    if (res.code == "200") {
+                        httpFactory.query("/user/checkUser", "post", $scope.Params)
+                        $scope.$emit("Ctr1NameChange", $scope.Params);
+                        $state.go("index.mine")
+                    } else {
+                        toastr.error(res.msg);
+                    }
+                    console.log(res);
+                }, function(res) {
+                    console.log(res)
+                })
         }
 
     }
@@ -130,19 +138,22 @@ myapp.controller("mybookrackCtr", [
             function() {
 
             });
-        
+        // $scope.search=function () {
+
+        // }
+
     }
 ])
 myapp.controller("bookCityCtr", ["$scope", "httpFactory", "$state",
     function($scope, httpFactory, $state) {
         $state.go("index.bookCity.boy");
-        httpFactory.query("/tag/bookCity","get").then(function(res){
-        	$scope.boys=res["男生"];
-        	$scope.girls=res["女生"];
-        },function(){
-        	
+        httpFactory.query("/tag/bookCity", "get").then(function(res) {
+            $scope.boys = res["男生"];
+            $scope.girls = res["女生"];
+        }, function() {
+
         })
-        
+
     }
 ])
 myapp.controller("categoryCtr", ["$scope", "httpFactory", "$state",
@@ -198,9 +209,9 @@ function book($scope, $state, $stateParams, httpFactory) {
         id: $stateParams.id
     }
     httpFactory.query("/book/getBook", "get", params).then(function(res) {
-    	
+
         var fileName = "0001.txt";
-        $scope.bookName=res.bookName;
+        $scope.bookName = res.bookName;
         httpFactory.query(res.url + fileName, "get").then(function(resp) {
             $scope.text = resp;
             $scope.nowChapter = 1;
@@ -290,19 +301,59 @@ function book($scope, $state, $stateParams, httpFactory) {
 myapp.controller("detailsCtr", ["$scope", "$state", "$stateParams",
     "httpFactory", details
 ]);
+
 function details($scope, $state, $stateParams, httpFactory) {
-    httpFactory.query("/book/getBook","get",{"id":$stateParams.bookId}).then(function (res) {
-        $scope.book=res;
-        $scope.bookId=$stateParams.bookId;
-    },function (res) {
+    httpFactory.query("/book/getBook", "get", { "id": $stateParams.bookId }).then(function(res) {
+        $scope.book = res;
+        $scope.bookId = $stateParams.bookId;
+    }, function(res) {
         // error
     })
 }
 
 
-myapp.controller("cateList",["$state","$scope","$stateParams","httpFactory",function($state,$scope,$stateParams,httpFactory){
-    	 httpFactory.query("/tag/getBooksByTagId","get",{tagId:$stateParams.tagId}).then(function(res){
-         	$scope.name=res.name;
-    		 $scope.books=res.data;
-         })
+myapp.controller("cateList", ["$state", "$scope", "$stateParams", "httpFactory", function($state, $scope, $stateParams, httpFactory) {
+    httpFactory.query("/tag/getBooksByTagId", "get", { tagId: $stateParams.tagId }).then(function(res) {
+        $scope.name = res.name;
+        $scope.books = res.data;
+    })
+}])
+
+//查詢頁面
+myapp.controller("search", ["$state", "$scope", "$stateParams", "httpFactory", function($state, $scope, $stateParams, httpFactory) {
+
+    $scope.name = "";
+    $scope.listBody=false;//搜索面板显示与隐藏
+    $scope.author=null;
+    $scope.book=null;
+    $scope.tag=null;
+    $scope.search = function() {
+        if ($scope.name=="") {
+            toastr.info("搜索內容不能為空！");
+            return;
+        }
+        httpFactory.query("/book/search", "get", { name: $scope.name }).then(function(res) {
+        	$scope.listBody=true;
+        	for(var i=0;i<res.length;i++){
+        		if(res[i].name=="author"){
+        			$scope.author=res[i];
+        		}
+        		if(res[i].name=="book"){
+        			$scope.book=res[i];
+        		}
+        		if(res[i].name=="tag"){
+        			$scope.tag=res[i];
+        		}
+        	}
+        })
+    }
+    $scope.close=function(){
+    	$scope.listBody=false;
+    }
+    //清空搜内容
+    $scope.clear=function () {
+        $scope.name="";
+        $scope.listBody=false;
+    }
+
 }])

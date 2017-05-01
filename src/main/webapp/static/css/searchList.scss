@@ -1,0 +1,83 @@
+#searchList {
+	letter-spacing: 1px;
+    .header_bookCity {
+        position: relative;
+    }
+    #search_box {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        #search {
+            background: #309087;
+            border: 0;
+            width: 93%;
+            height: 60%;
+            text-indent: 6px;
+            border-radius: 4px;
+            color: #FFF;
+        }
+        #clear{
+			position: absolute;
+			right:50px;
+        }
+        #sbtn{
+        	position: absolute;
+        	right: 26px;
+        }
+    }
+}
+
+#search_record {
+    background: #FFF;
+    .title {
+        line-height: .9rem;
+        padding: 0 .4rem;
+        font-size: .3rem;
+        border-top: solid 1px #E6E6E6;
+        border-bottom: solid 1px #E6E6E6;
+    }
+    .content {
+        .child {
+            padding: 0 .3rem;
+            line-height: .8rem;
+            font-size: .24rem;
+            border-bottom: solid 1px #E6E6E6;
+            .name:before {
+                content: "\2657";
+            }
+            .close {
+                font-size: .4rem;
+            }
+        }
+    }
+}
+
+#search_result {
+    position: absolute;
+    width: 99%;
+    color: #7C7C7C;
+    background: #FFF;
+    z-index: 10;
+    padding-bottom: .4rem;
+    box-shadow: 1px 1px 2px #ccc;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    left: 50%;
+    transform:translate(-50%); 
+    li {
+        line-height: .8rem;
+        padding: 0 .3rem;
+        border-bottom: solid 1px #E6E6E6;
+        .icon{
+        	padding-right: .2rem;
+        }
+        .content{
+        	.active{
+        		color: #5ED9CD;
+        	}
+        }
+    }
+}
