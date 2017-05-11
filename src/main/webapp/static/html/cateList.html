@@ -8,7 +8,7 @@
     </header>
     <div class="contain">
 		<ul class="list_body">
-			<li class="list_child clearfix p2" ng-repeat="book in books">
+			<li class="list_child clearfix p2" ng-repeat="book in books" ui-sref="details({bookId:book.bookId})">
 				<div class="img_box fl">
 					<img ng-src="{{book.coverPic}}" alt="">
 				</div>
