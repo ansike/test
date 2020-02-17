@@ -16,38 +16,22 @@ Date: 2017-05-29 11:13:00
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for app
--- ----------------------------
-DROP TABLE IF EXISTS `app`;
-CREATE TABLE `app` (
-  `app_id` int(10) NOT NULL AUTO_INCREMENT,
-  `app_name` varchar(30) DEFAULT NULL,
-  `app_info` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of app
--- ----------------------------
-INSERT INTO `app` VALUES ('1', 'app1', 'this is app');
-
--- ----------------------------
 -- Table structure for book
 -- ----------------------------
 DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
-  `book_id` int(11) NOT NULL AUTO_INCREMENT,
-  `book_name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `book_author` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `isupdate` timestamp(4) NOT NULL,
-  `cover_pic` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `info` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `state` int(5) DEFAULT NULL,
+  `book_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '书ID',
+  `book_name` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '书名字',
+  `book_author` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '书的作者',
+  `isupdate` timestamp NOT NULL COMMENT '书是否已更新',
+  `cover_pic` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '封面',
+  `info` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '详情',
+  `state` int(5) NOT NULL DEFAULT 1 COMMENT '状态',
   `font_num` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `book_url` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '书籍的默认路径',
   `chapter` int(10) NOT NULL COMMENT '章节名字前面自动补全0，共4位，文件后缀为txt',
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of book
@@ -69,9 +53,9 @@ CREATE TABLE `tag` (
   `tag_id` int(10) NOT NULL AUTO_INCREMENT,
   `tag_value` varchar(225) NOT NULL,
   `create_by` varchar(20) DEFAULT NULL,
-  `create_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL COMMENT "创建时间",
   `update_by` varchar(20) DEFAULT NULL,
-  `update_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
   `tag_pic` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`tag_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -99,9 +83,9 @@ CREATE TABLE `tag_book` (
   `tag_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `create_by` varchar(25) DEFAULT NULL,
-  `create_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime COMMENT "创建时间",
   `update_by` varchar(20) DEFAULT NULL,
-  `update_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "更新时间",
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
@@ -140,7 +124,7 @@ CREATE TABLE `user` (
   `phone` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`userId`,`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -158,7 +142,7 @@ CREATE TABLE `user_book` (
   `user_id` int(10) NOT NULL,
   `status` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of user_book
